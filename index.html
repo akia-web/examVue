@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panier.css">
+    <link rel="stylesheet" href="css/articles.css">
+    <link rel="stylesheet" href="css/detail-article.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <section id="vue" >
+        <!---------------------- BARRE DE HEADER PANIER + DETAIL PANIER  ------------>
+    <header>
+       <div class="panier">
+           <p v-bind:class="{panierIsActif: compteur > 0}" class="cursor" v-on:click="getPanier">Articles 🛒 : {{compteur}}  💵 {{prix}} $</p> 
+       </div> 
+
+       <div class="containerPanier">
+            <div v-for="article in panier" class="containerOneArticlePanier">
+               <img class="detail-panier-image":src="article.image" alt="">
+                <div class="containerOneArticlePanierDetail">
+                    <h3>{{article.nom}}</h3>
+                    <p>quantité : {{article.quantite}}</p>
+                    <p> prix : {{article.prix}}</p>
+                    <div class="containerButtonPanier">
+                        <button v-on:click="addQuantity(article.id)">+</button>
+                        <button v-on:click="removeQuantity(article.id)">-</button>
+                    </div>
+               </div>
+            </div>
+       </div>
+    </header>
+
+
+     <!---------------------- Vue de tous les articles  ------------>
+        <template v-if="view == 'articles'" >
+            <div class="template">
+        
+                <h1>Liste des Tshirt page {{pageActuelle}}</h1>
+                <div class="container">
+                    <div class="article" v-for="article in getOnePage">
+                        <div class="container-image">
+                            <div>
+                                <img :src="article.imageURL" alt=""> <br>
+                            </div>
+                            <p v-if='article.flag != ""' class="flag" v-bind:class="{ red: article.flag == 'NEW', blue: article.flag=='Sale!'}">{{article.flag}}</p>
+                        </div>
+                        <h2  v-on:click="getArticle(article.id), view='oneArticle'">{{article.name}}</h2>
+                        <div class="achatRapideContainer">
+                            <span>{{article.price}} $</span>
+                            <button class="achatRapide" v-on:click="addArticle(article.id, article.name, article.imageURL, article.price)">Achat rapide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-button-pagination">
+                <button  v-bind:class="{ activePagination: index == pageActuelle, blue: article.flag=='Sale!'}"class="button-pagination" v-for="index in 5" :key="index" v-bind:id="index" v-on:click="getApi(index)">Page {{index}}</button>
+            </div>
+        </template>
+        
+        
+        <template v-if="view == 'oneArticle'">
+            <div class="template">
+                <button class="retour" v-on:click="view='articles'"><- Retour aux articles</button>
+                <div class="container-OneArticle">
+                    
+                        
+                        <img :src="oneArticle.imageURL" alt="">
+                        
+                        <div class="container-OneArticle-detail">
+                            <h2>{{oneArticle.name}}</h2>
+                            <p class="detail">{{oneArticle.description}}</p>
+                            <p>Prix : {{oneArticle.price}} $</p>
+                            <button class="achatRapide" v-on:click="addArticle(oneArticle.id, oneArticle.name, oneArticle.imageURL, oneArticle.price)">Acheter</button>
+                            
+                        </div>
+                                        
+                </div>
+            </div>
+
+        </template>
+
+
+   
+    </section>
+ 
+    <footer>
+        <p> Examin VueJs 08/02/2022</p>
+    </footer>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

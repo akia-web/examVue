@@ -1,0 +1,120 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+    row-gap: 50px
+
+}
+
+.container h2{
+    text-align: center;
+    transition: 0.2s ease-in-out;
+    padding-top: 0.5em;
+   
+}
+
+.container h2:hover{
+    color:rgb(206, 28, 176); 
+    cursor: pointer;
+}
+
+.article{
+    background-color: rgb(239, 245, 245);
+    box-shadow: 7px 5px 8px 0px rgba(119, 119, 119, 0.75);
+    -moz-box-shadow: 7px 5px 8px 0px rgba(119, 119, 119, 0.75);
+    -webkit-box-shadow: 7px 5px 8px 0px rgba(119, 119, 119, 0.75);
+    max-width: 500px;
+    max-height: 623px;
+}
+.article .description {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.container-image{
+    position: relative;
+    
+}
+.contenantImage{
+    overflow:hidden;
+    width: 500px;
+    height: 500px ;
+}
+.image{
+    width: 500px ;
+    transition: 0.2s ease-in-out;
+}
+.image:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.flag{
+    color: white;
+    width: 58px;
+    border-radius: 50%;
+    padding: 14px 14px 14px 8px;
+    position: absolute;
+    top: -16px;
+    right: -15px;
+    transform: rotate(33deg);
+    border: 2.5px solid white;
+    z-index: 1;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+
+.achatRapideContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+    align-items: center;
+    
+}
+.achatRapide{
+    background-color: rgb(63, 124, 194);
+    padding: 10px;
+    border: 1px solid rgb(34, 67, 105);
+    transition: 0.2s ease-in-out;
+    color: white
+}
+
+.achatRapide:hover{
+    background-color:rgb(34, 67, 105) ;
+    
+}
+
+.container-button-pagination{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.button-pagination{
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+}
+.button-pagination:hover{
+    background-color: rgb(172, 78, 78)
+}
+
+.button-pagination:not(:last-child){
+    margin-right: 1em;
+}
+
+.activePagination{
+    background-color: lightcoral;
+    border: 1px solid rgb(172, 78, 78);
+   
+}

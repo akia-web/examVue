@@ -1,0 +1,87 @@
+
+.panier p{
+    margin-right: 2em;
+   
+    padding: 10px;
+    
+}
+.panierIsActif{
+    transition: 0.3;
+    cursor: pointer;
+}
+
+.containerOneArticlePanier{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    color:black;
+    border-bottom: 1px solid black;
+}
+
+
+.detail-panier-image{
+    width: 150px;
+}
+.containerOneArticlePanier button{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(63, 124, 194);
+    color: white;
+}
+
+
+.containerOneArticlePanier button:first-child{
+    margin-right: 10px;
+}
+
+.panierIsActif:hover{
+    background-color: grey;
+}
+
+.containerPanier{
+    position: fixed;
+    right: 0;
+    top: 10vh;
+    height: 90vh;
+    background: rgb(252, 252, 252);
+    padding: 10px;
+    width: 0;
+    z-index: -1;
+    opacity: 0;
+    overflow: auto;
+    border-left: 2px solid black;
+ 
+}
+
+.containerPanier::-webkit-scrollbar{
+    width: 12px;
+}
+
+.containerPanier::-webkit-scrollbar-track {
+    background: rgb(2, 2, 2); 
+}
+
+.containerPanier::-webkit-scrollbar-thumb {
+    background-color: rgb(206, 28, 176); 
+    border-radius: 20px;
+    border: 3px solid rgb(2, 2, 2); 
+  }
+.containerButtonPanier{
+    padding-top: 1em;
+    display: flex;
+}
+.containerOneArticlePanierDetail{
+    width: 139px;
+
+}
+
+.active{
+   opacity: 1;
+   transition: opacity 0.3s ease;
+   z-index: 1;
+   width: 340px;
+   
+}
