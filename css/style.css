@@ -38,6 +38,7 @@ button{
 
 .template{
     margin-top: 15vh;
+    min-height: 75vh;
 }
 
 footer{
