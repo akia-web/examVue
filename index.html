@@ -28,7 +28,9 @@
 
        <div class="containerPanier">
             <div v-for="article in panier" class="containerOneArticlePanier">
-               <img class="detail-panier-image":src="article.image" alt="">
+               
+                    <img class="detail-panier-image":src="article.image" alt="">
+                
                 <div class="containerOneArticlePanierDetail">
                     <h3>{{article.nom}}</h3>
                     <p>quantité : {{article.quantite}}</p>
@@ -51,8 +53,8 @@
                 <div class="container">
                     <div class="article" v-for="article in getOnePage">
                         <div class="container-image">
-                            <div>
-                                <img :src="article.imageURL" alt=""> <br>
+                            <div  class="zoom">
+                                <img :src="article.imageURL" alt="" v-on:click="getArticle(article.id), view='oneArticle'"> 
                             </div>
                             <p v-if='article.flag != ""' class="flag" v-bind:class="{ red: article.flag == 'NEW', blue: article.flag=='Sale!'}">{{article.flag}}</p>
                         </div>
